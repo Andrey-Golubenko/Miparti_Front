@@ -1,2 +1,2 @@
 # Miparti_Front
-Front part jo project Miparti
+Front part of project Miparti
