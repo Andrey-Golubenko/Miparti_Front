@@ -1,0 +1,31 @@
+.rider {
+	margin-top: 1.5rem;
+	.rider_image {
+		margin-bottom: 3rem;
+		&>img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.rider_content {
+		text-align: left;
+		.rider_content_item {
+			font: normal 1.3rem/1.5 'Lora';
+			color: #fff;
+			margin: 0 3% 1.5rem;
+			@media (max-width: 479px) {
+				line-height: 1.6;
+				font-size: 1rem;
+			}
+			h3.rider_content_item_heading {
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+			}
+			.rider_content_item_text {
+				margin-left: 1.5rem;
+				margin-bottom: .7rem;
+			}
+		}
+	}
+}

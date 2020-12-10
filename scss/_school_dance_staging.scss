@@ -1,0 +1,35 @@
+section.dance_staging {
+	.dance_staging_description {
+		display: block;
+		margin-top: 1.5rem;
+		margin-bottom: 2.5rem;
+		@include section_description_with_adds;
+		.common_description {
+			.common_description_item {
+				.common_description_text {
+					text-align: center;
+					font-size: 1.5rem;
+				}
+				.common_description_text_full {
+					&:not(:nth-last-child(-n+3)):first-letter {
+						font-weight: bolder;
+						font-size: inherit;
+						line-height: inherit;
+					}
+					span.highlighted_symbol {
+						margin: 0;
+					}
+				}
+			}
+		}
+		.wedding_dance, .choreography_creating,
+		.master_classes, .artists_training {
+			cursor: pointer;
+			color: #E5C973 !important;
+		}
+	}
+	@include single_video_item;
+	.videos_item {
+		margin-bottom: 4rem;
+	}
+}

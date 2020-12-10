@@ -1,0 +1,6 @@
+.studio_videos {
+	display: block;
+	margin-top: 3rem;
+								/*** ONE ITEM ***/
+	@include single_video_item;
+}
