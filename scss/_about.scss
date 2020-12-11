@@ -9,7 +9,6 @@ section.about {
 		button.slick-prev.slick-arrow, button.slick-next.slick-arrow {
 			position: absolute;
 			background: url("../img/arrow_for_all.svg") transparent no-repeat;
-			fill: #fff;
 			border: none;
 			cursor: pointer;
 			width: 34px !important;
@@ -19,27 +18,40 @@ section.about {
 			left: 10%;
 			transform: rotate(-180deg) ;
 			@media (max-width: 767px) {
-				left: -1%;
+				left: 0;
 			}
 		}
 		button.slick-next.slick-arrow {
 			right: 10%;
 			@media (max-width: 767px) {
-				right: -1%;
+				right: 0;
 			}
 		}
 		.slick-list.draggable {
 			width: 70%;
+			height: 450px;
+			border: 1px solid #fff;
 			@media (max-width: 767px) {
 				width: 90%;
+				height: 300px !important;
 			}
-			div .slick-slide {
-				img {
-					width: 100% !important;
-					height: 450px !important;
-					object-fit: cover;
+			.slick-track {
+				height: 450px;
+				@media (max-width: 767px) {
+					height: 300px !important;
+				}
+				div.slick-slide {
+					height: 450px;
 					@media (max-width: 767px) {
 						height: 300px !important;
+					}
+					img {
+						width: 100% !important;
+						height: 450px !important;
+						object-fit: cover;
+						@media (max-width: 767px) {
+							height: 300px !important;
+						}
 					}
 				}
 			}

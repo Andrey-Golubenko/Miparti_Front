@@ -90,7 +90,9 @@
 				border-image: linear-gradient(to right, transparent, $gold-color, transparent) 10%;
 				position: relative;
 				overflow: hidden;
-
+				@media (max-width: 767px){
+					height: 60px;
+				}
 				&:hover .subscription_form_link  {
 					top: 0;
 				}
@@ -119,7 +121,7 @@
 			}
 			.timetable_table_item {
 				.timetable_table_item_text {
-					@media (max-width: 768px) {
+					@media (max-width: 767px) {
 						border-right: 2px solid !important;
 					}
 				}

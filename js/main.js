@@ -202,7 +202,7 @@ jQuery(function () {
     if (studioPlanetsMediaQuery.matches) {
         planetsContent.removeClass('running');
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 300) {
+            if ($(this).scrollTop() > 200) {
                 planetsContent.addClass('running');
             }
             else {
@@ -229,9 +229,11 @@ jQuery(function () {
         curItem.find('.common_description_text_full').slideToggle();
         changeClass.toggleClass('open_full_text');
         if (changeClass.is('.open_full_text')) {
-            changeText.text('').text('Свернуть . . .');
+            changeText.text('Свернуть . . .');
         }
-        else { changeText.text('').text('Читать делее . . .'); }
+        else {
+            changeText.text('Читать делее . . .');
+        }
     });
 
 /************************************************************************************/
@@ -403,7 +405,7 @@ jQuery(function () {
     timeTableMediaQuery.addListener(handleTimetableLaptop);
     handleTimetableLaptop(timeTableMediaQuery);
 
-    function handleTimeTableTablet(e) { // Check if the media query is true
+    function handleTimeTableTablet(e) {
         const sliderIsElement = parentSection ? parentSection.querySelector('.slick-list') : 0;
         if (e.matches) {
             if (sliderIsElement){
@@ -437,7 +439,7 @@ jQuery(function () {
     timeTableMediaQueryTablet.addListener(handleTimeTableTablet);
     handleTimeTableTablet(timeTableMediaQueryTablet);
 
-    function handleTimeTablePhone(e) { // Check if the media query is true
+    function handleTimeTablePhone(e) {
         const sliderIsElement = parentSection ? parentSection.querySelector('.slick-list') : 0;
         if (e.matches) {
             if (sliderIsElement) {
@@ -504,9 +506,10 @@ jQuery(function () {
 /************************************************************************************/
 
     $('.about_slider').slick({
-        autoplay: true,
+        autoplay: false, //true,
         infinite: true,
-        speed: 2000,
+        autoplaySpeed: 2000,
+        speed: 1000,
         accessibility: false,
     });
 

@@ -13,9 +13,10 @@
 		cursor: pointer;
 		margin: 12px 20px 20px;
 		width: 30px;
-		height: 28px;
+		height: 30px;
 		border-radius: 50%;
 		box-shadow: 0 0 10px 3px $gold-color;
+		flex-shrink: 0;
 
 		span.arrow-text-left, span.arrow-text-right,
 		span.nav_link_arrow_left,span.nav_link_arrow_right {
@@ -486,6 +487,9 @@
 	border-right: none;
 	border-image: linear-gradient(to top, transparent, $gold-color, transparent) 10%;
 	padding: 1rem 1rem 0;
+	@media (max-width: 767px) {
+		padding: 0 1rem 0;
+	}
 	&>time, & p {
 		text-align: center;
 		font: 1.125rem "Lora", sans-serif;
@@ -493,6 +497,9 @@
 		margin-bottom: 1rem;
 		@media (max-width: 1024px) {
 			font-size: 1.1rem !important;
+		}
+		@media (max-width: 767px) {
+			margin-bottom: 0;
 		}
 		@media (max-width: 375px) {
 			font-size: .9rem !important;
@@ -513,6 +520,9 @@
 		z-index: 5;
 		top: -100%;
 		transition: top 700ms;
+		@media (max-width: 767px) {
+			padding: 0 1rem 0;
+		}
 		&>a {
 			@include aligning_element;
 			width: 100%;
@@ -681,15 +691,18 @@
 
 @mixin single_video_item {
 	.videos_item {
-		margin-bottom: 2rem;
-		margin-left: 4%;
-		margin-right: 4%;
+		margin: 0 4% 2rem;
+		@media (max-width: 767px) {
+			margin: 0 0 2rem;
+		}
 		.videos_item_heading {
 			@include aligning_element;
 			&>h3 {
-				font: 2rem/2 'Lora';
+				text-align: center;
+				font: 2rem 'Lora';
 				color: #ebedec;
 				margin-bottom: 2.5rem;
+				padding-bottom: 1.5rem;
 				border-bottom: 1px solid $gold-color;
 			}
 		}
@@ -747,8 +760,6 @@
 								background-image: url("../img/media_control.svg");
 								width: 24px;
 								height: 24px;
-								/*font-size: 1.5rem;
-								color: #000;*/
 							}
 						}
 					}
@@ -772,7 +783,7 @@
 							align-items: center;
 							@media (max-width: 768px) {
 								padding-left: 0;
-								margin: 0 8px 1rem;
+								margin: 0 .3rem .6rem;
 							}
 							&>img {
 								width: 150px;
@@ -825,8 +836,8 @@
 								padding-bottom: 0;
 							}
 						}
-						@media (max-width: 768px) {
-							margin: 0 8px 1rem;
+						@media (max-width: 767px) {
+							margin: 0 .3rem .6rem;
 						}
 						&>img {
 							width: 150px;
