@@ -708,7 +708,7 @@ img.mfp-img {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding: 0 10% 0 !important;
+    padding: 0 10% !important;
   }
 }
 
@@ -799,7 +799,11 @@ html.magnificPopupNoScroll {
   z-index: 99999;
 }
 
-div.front_wrapper {
+div#wrapper {
+  padding: 0 !important;
+}
+
+div#wrapper div.front_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -815,7 +819,7 @@ div.front_wrapper {
           justify-content: center;
 }
 
-div.front_wrapper section.sliders {
+div#wrapper div.front_wrapper section.sliders {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -827,30 +831,30 @@ div.front_wrapper section.sliders {
   z-index: 1;
 }
 
-div.front_wrapper section.sliders .slider_left, div.front_wrapper section.sliders .slider_right {
+div#wrapper div.front_wrapper section.sliders .slider_left, div#wrapper div.front_wrapper section.sliders .slider_right {
   width: 50%;
   height: 100vh;
 }
 
-div.front_wrapper section.sliders .slider_left .slick-list.draggable, div.front_wrapper section.sliders .slider_right .slick-list.draggable {
+div#wrapper div.front_wrapper section.sliders .slider_left .slick-list.draggable, div#wrapper div.front_wrapper section.sliders .slider_right .slick-list.draggable {
   width: 100%;
   height: 100vh;
 }
 
-div.front_wrapper section.sliders .slider_left .slick-list.draggable div .slick-slide, div.front_wrapper section.sliders .slider_right .slick-list.draggable div .slick-slide {
+div#wrapper div.front_wrapper section.sliders .slider_left .slick-list.draggable div .slick-slide, div#wrapper div.front_wrapper section.sliders .slider_right .slick-list.draggable div .slick-slide {
   height: 100vh !important;
 }
 
-div.front_wrapper section.sliders .slider_left .slick-list.draggable div .slick-slide img, div.front_wrapper section.sliders .slider_right .slick-list.draggable div .slick-slide img {
+div#wrapper div.front_wrapper section.sliders .slider_left .slick-list.draggable div .slick-slide img, div#wrapper div.front_wrapper section.sliders .slider_right .slick-list.draggable div .slick-slide img {
   width: 102% !important;
   height: 100vh !important;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-filter: brightness(95%);
-          filter: brightness(95%);
+  -webkit-filter: brightness(92%);
+          filter: brightness(92%);
 }
 
-div.front_wrapper section.sliders .slider_left .slick-list.draggable div .slick-slide.slick-slide.slick-current.slick-active img, div.front_wrapper section.sliders .slider_right .slick-list.draggable div .slick-slide.slick-slide.slick-current.slick-active img {
+div#wrapper div.front_wrapper section.sliders .slider_left .slick-list.draggable div .slick-slide.slick-slide.slick-current.slick-active img, div#wrapper div.front_wrapper section.sliders .slider_right .slick-list.draggable div .slick-slide.slick-slide.slick-current.slick-active img {
   -webkit-animation: slider_scale 8000ms  linear infinite;
           animation: slider_scale 8000ms  linear infinite;
 }
@@ -877,7 +881,7 @@ div.front_wrapper section.sliders .slider_left .slick-list.draggable div .slick-
   }
 }
 
-div.front_wrapper section.front_content .clipboard {
+div#wrapper div.front_wrapper section.front_content .clipboard {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -903,7 +907,7 @@ div.front_wrapper section.front_content .clipboard {
           filter: brightness(150%) contrast(120%);
 }
 
-div.front_wrapper section.front_content .clipboard > img {
+div#wrapper div.front_wrapper section.front_content .clipboard > img {
   display: block;
   position: relative;
   width: 170px;
@@ -917,7 +921,7 @@ div.front_wrapper section.front_content .clipboard > img {
   padding: 5px;
 }
 
-div.front_wrapper div.interactive_studio {
+div#wrapper div.front_wrapper div.interactive_studio {
   position: absolute;
   z-index: 5;
   background: rgba(255, 255, 255, 0.5);
@@ -942,7 +946,7 @@ div.front_wrapper div.interactive_studio {
           animation: interactive_studio_move 2s ease-in-out .3s forwards;
 }
 
-div.front_wrapper div.interactive_studio .interactive_school_wrapper, div.front_wrapper div.interactive_studio .interactive_studio_wrapper {
+div#wrapper div.front_wrapper div.interactive_studio .interactive_school_wrapper, div#wrapper div.front_wrapper div.interactive_studio .interactive_studio_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -962,7 +966,7 @@ div.front_wrapper div.interactive_studio .interactive_school_wrapper, div.front_
           flex-direction: column;
 }
 
-div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item, div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item {
+div#wrapper div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item, div#wrapper div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item {
   display: inline-block;
   position: relative;
   left: -10%;
@@ -974,20 +978,20 @@ div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction
 }
 
 @media (min-width: 1024px) {
-  div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item:hover, div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item:hover {
+  div#wrapper div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item:hover, div#wrapper div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item:hover {
     padding: 3px 10px;
     border-radius: 100px;
     color: #FFE15D;
   }
 }
 
-div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item > p, div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item > p {
+div#wrapper div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item > p, div#wrapper div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item > p {
   display: inline-block;
   line-height: 1;
   text-shadow: -0   -1px 0 #000000, 0   -1px 0 #000000, -0    1px 0 #000000, 0    1px 0 #000000, -1px -0   0 #000000, 1px -0   0 #000000, -1px  0   0 #000000, 1px  0   0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px  1px 0 #000000, 1px  1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px  1px 0 #000000, 1px  1px 0 #000000;
 }
 
-div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item > hr, div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item > hr {
+div#wrapper div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction_item > hr, div#wrapper div.front_wrapper div.interactive_studio .interactive_studio_wrapper a.direction_item > hr {
   background: #eac15a;
   border: none;
   height: 2.2px;
@@ -1014,7 +1018,7 @@ div.front_wrapper div.interactive_studio .interactive_school_wrapper a.direction
   }
 }
 
-div.front_wrapper div.interactive_school {
+div#wrapper div.front_wrapper div.interactive_school {
   position: absolute;
   z-index: 5;
   background: rgba(255, 255, 255, 0.5);
@@ -1039,7 +1043,7 @@ div.front_wrapper div.interactive_school {
           animation: interactive_school_move 2s ease-in-out .3s forwards;
 }
 
-div.front_wrapper div.interactive_school .interactive_school_wrapper, div.front_wrapper div.interactive_school .interactive_studio_wrapper {
+div#wrapper div.front_wrapper div.interactive_school .interactive_school_wrapper, div#wrapper div.front_wrapper div.interactive_school .interactive_studio_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1059,7 +1063,7 @@ div.front_wrapper div.interactive_school .interactive_school_wrapper, div.front_
           flex-direction: column;
 }
 
-div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item, div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item {
+div#wrapper div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item, div#wrapper div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item {
   display: inline-block;
   position: relative;
   left: -10%;
@@ -1071,20 +1075,20 @@ div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction
 }
 
 @media (min-width: 1024px) {
-  div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item:hover, div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item:hover {
+  div#wrapper div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item:hover, div#wrapper div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item:hover {
     padding: 3px 10px;
     border-radius: 100px;
     color: #FFE15D;
   }
 }
 
-div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item > p, div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item > p {
+div#wrapper div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item > p, div#wrapper div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item > p {
   display: inline-block;
   line-height: 1;
   text-shadow: -0   -1px 0 #000000, 0   -1px 0 #000000, -0    1px 0 #000000, 0    1px 0 #000000, -1px -0   0 #000000, 1px -0   0 #000000, -1px  0   0 #000000, 1px  0   0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px  1px 0 #000000, 1px  1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px  1px 0 #000000, 1px  1px 0 #000000;
 }
 
-div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item > hr, div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item > hr {
+div#wrapper div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item > hr, div#wrapper div.front_wrapper div.interactive_school .interactive_studio_wrapper a.direction_item > hr {
   background: #eac15a;
   border: none;
   height: 2.2px;
@@ -1111,7 +1115,7 @@ div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction
   }
 }
 
-div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item {
+div#wrapper div.front_wrapper div.interactive_school .interactive_school_wrapper a.direction_item {
   position: relative;
   left: 9%;
 }
@@ -1517,7 +1521,7 @@ div.mobile_front_wrapper section.mobile_front_menu .head_menu nav.nav_menu > ul 
   div.mobile_front_wrapper section.mobile_front_menu .head_menu nav.nav_menu > ul > li.nav_link > a .underline, div.mobile_front_wrapper section.mobile_front_menu .head_menu nav.nav_menu > ul > li.nav_link > a .sub_underline {
     display: inline-block;
     position: relative;
-    left: -500%;
+    left: -700%;
     width: 101%;
     height: 1px;
     background-color: #eac15a;
@@ -1586,7 +1590,7 @@ div.mobile_front_wrapper section.mobile_front_menu .head_menu nav.nav_menu > ul 
   div.mobile_front_wrapper section.mobile_front_menu .head_menu nav.nav_menu > ul > li.nav_link ul.nav_link_sub_menu li.nav_link_sub_menu_item > a .underline, div.mobile_front_wrapper section.mobile_front_menu .head_menu nav.nav_menu > ul > li.nav_link ul.nav_link_sub_menu li.nav_link_sub_menu_item > a .sub_underline {
     display: inline-block;
     position: relative;
-    left: -500%;
+    left: -700%;
     width: 101%;
     height: 1px;
     background-color: #eac15a;
@@ -2026,6 +2030,18 @@ section.front_content > .front_nav_menu {
 
 section.front_content > .front_nav_menu nav.front_nav_menu_content {
   display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: absolute;
   top: 47%;
   bottom: 0;
@@ -2040,8 +2056,28 @@ section.front_content > .front_nav_menu nav.front_nav_menu_content {
   background: rgba(225, 225, 225, 0.4);
 }
 
-section.front_content > .front_nav_menu nav.front_nav_menu_content > ul {
-  margin-top: .7rem;
+@media (min-height: 700px) {
+  section.front_content > .front_nav_menu nav.front_nav_menu_content > ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+    -webkit-justify-content: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    padding-bottom: 2rem;
+  }
 }
 
 section.front_content > .front_nav_menu nav.front_nav_menu_content > ul > li {
@@ -2088,7 +2124,7 @@ section.front_content > .front_nav_menu nav.front_nav_menu_content > ul > li > a
   section.front_content > .front_nav_menu nav.front_nav_menu_content > ul > li > a .underline, section.front_content > .front_nav_menu nav.front_nav_menu_content > ul > li > a .sub_underline {
     display: inline-block;
     position: relative;
-    left: -500%;
+    left: -700%;
     width: 101%;
     height: 1px;
     background-color: #eac15a;
@@ -2113,6 +2149,14 @@ section.front_content > .front_nav_menu nav.front_nav_menu_content > ul > li > a
 }
 
 header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100%;
 }
 
@@ -2138,6 +2182,12 @@ header .head_menu {
   margin: 1rem 0 0;
   width: 100%;
   height: 90px;
+}
+
+@media (min-width: 1600px) {
+  header .head_menu {
+    padding: 0 10% !important;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -2597,7 +2647,7 @@ header .head_menu nav.nav_menu > ul > li.nav_link > a .nav_link_wrapper .arrow_s
   header .head_menu nav.nav_menu > ul > li.nav_link > a .underline, header .head_menu nav.nav_menu > ul > li.nav_link > a .sub_underline {
     display: inline-block;
     position: relative;
-    left: -500%;
+    left: -700%;
     width: 101%;
     height: 1px;
     background-color: #eac15a;
@@ -2690,7 +2740,7 @@ header .head_menu nav.nav_menu > ul > li.nav_link ul.nav_link_sub_menu li.nav_li
   header .head_menu nav.nav_menu > ul > li.nav_link ul.nav_link_sub_menu li.nav_link_sub_menu_item > a .underline, header .head_menu nav.nav_menu > ul > li.nav_link ul.nav_link_sub_menu li.nav_link_sub_menu_item > a .sub_underline {
     display: inline-block;
     position: relative;
-    left: -500%;
+    left: -700%;
     width: 101%;
     height: 1px;
     background-color: #eac15a;
@@ -2790,7 +2840,6 @@ header .breadcrumbs {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 3rem !important;
 }
 
 header .breadcrumbs .breadcrumbs_wrapper {
@@ -4067,6 +4116,7 @@ section.transforming_planets .transforming_planets_content div#content_spheres u
 
 section.transforming_planets .transforming_planets_content div#content_spheres ul#content_lines li.content_lines_bottom_right a.content_spheres_bottom_right_link > div.move_to_map .globe-container .globe .globe-worldmap {
   position: absolute;
+  z-index: 99;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -5309,12 +5359,16 @@ section.world_map .world_map_countries .indicator_inner .indicator_inner_country
   text-align: center;
   display: block;
   color: #fff;
-  font: 1.1rem Arial;
-  font-weight: bold;
+  font: bold 1.1rem Arial;
   -webkit-text-stroke: .8px #000;
-  text-shadow: 0 0 50px #fff;
   padding: 10px 10px;
   border-radius: 10px;
+}
+
+@media (min-width: 1024px) {
+  section.world_map .world_map_countries .indicator_inner .indicator_inner_country {
+    text-shadow: 0 0 50px #fff;
+  }
 }
 
 section.world_map .world_map_countries .indicator_inner > a {
@@ -5511,12 +5565,16 @@ section.world_map .whole_map #indicator .indicator_inner .indicator_inner_countr
   text-align: center;
   display: block;
   color: #fff;
-  font: 1.1rem Arial;
-  font-weight: bold;
+  font: bold 1.1rem Arial;
   -webkit-text-stroke: .8px #000;
-  text-shadow: 0 0 50px #fff;
   padding: 10px 10px;
   border-radius: 10px;
+}
+
+@media (min-width: 1024px) {
+  section.world_map .whole_map #indicator .indicator_inner .indicator_inner_country {
+    text-shadow: 0 0 50px #fff;
+  }
 }
 
 /*

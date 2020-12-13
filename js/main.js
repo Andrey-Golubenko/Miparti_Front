@@ -88,7 +88,6 @@ jQuery(function () {
     // Fix MENU on a TOP
     $(window).scroll(function () {
         const scrolled = $(this).scrollTop();
-
         if(!$('.head_menu').hasClass('mobile_menu_open')) {
             if (scrolled > menuHeight){
                 componentMenu.addClass('fixing_menu');
@@ -195,28 +194,7 @@ jQuery(function () {
     });
 
 
-    // Appearance Transforming planets, during Scroll
-    const planetsContent = $('.transforming_planets_content');
-    // Moving planets is available only if screen-size is < 768px
-    const studioPlanetsMediaQuery = window.matchMedia('(min-width: 768px)');
-    if (studioPlanetsMediaQuery.matches) {
-        planetsContent.removeClass('running');
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 200) {
-                planetsContent.addClass('running');
-            }
-            else {
-                planetsContent.removeClass('running');
-            }
-        });
-    }
-
-    // Scroll from transforming_planets to world_map
     const docRoot = $('html, body'); // Variable for ALL ScrollS to AnchorS
-    $('.move_to_map, .content_spheres_bottom_right_tooltip').click(function (e) {
-        e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_earth').offset().top}, 800);
-    });
 
 
     // Open full description-text (in section description)
@@ -479,22 +457,22 @@ jQuery(function () {
  // Scrolling to wedding_dance
     $('.wedding_dance').click( function (e) {
         e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_wedding_dance').offset().top}, 800);
+        docRoot.animate({scrollTop: $('#anchor_from_wedding_dance').offset().top - '80'}, 800);
     });
 // Scrolling to choreography_creating
     $('.choreography_creating').click( function (e) {
         e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_choreography_creating').offset().top}, 800);
+        docRoot.animate({scrollTop: $('#anchor_from_choreography_creating').offset().top - '80'}, 800);
     });
 // Scrolling to master_classes
     $('.master_classes').click( function (e) {
         e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_master_classes').offset().top}, 800);
+        docRoot.animate({scrollTop: $('#anchor_from_master_classes').offset().top - '80'}, 800);
     });
 // Scrolling to artists_training
     $('.artists_training').click( function (e) {
         e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_artists_training').offset().top}, 800);
+        docRoot.animate({scrollTop: $('#anchor_from_artists_training').offset().top - '80'}, 800);
     });
 
 /************************************************************************************/
@@ -506,7 +484,7 @@ jQuery(function () {
 /************************************************************************************/
 
     $('.about_slider').slick({
-        autoplay: false, //true,
+        autoplay: true,
         infinite: true,
         autoplaySpeed: 2000,
         speed: 1000,

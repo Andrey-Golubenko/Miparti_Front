@@ -1,106 +1,109 @@
-div.front_wrapper {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	section.sliders{
+div#wrapper {
+	padding: 0 !important;
+	div.front_wrapper {
 		display: flex;
-		overflow: hidden;
-		position: relative;
-		width: 100%;
-		height: 100vh;
-		z-index: 1;
-		.slider_left, .slider_right{
-			width: 50%;
+		flex-direction: column;
+		justify-content: center;
+		section.sliders{
+			display: flex;
+			overflow: hidden;
+			position: relative;
+			width: 100%;
 			height: 100vh;
-			.slick-list.draggable {
-				width: 100%;
+			z-index: 1;
+			.slider_left, .slider_right{
+				width: 50%;
 				height: 100vh;
-				div .slick-slide {
-					height: 100vh !important;
-					img {
-						width: 102% !important;
+				.slick-list.draggable {
+					width: 100%;
+					height: 100vh;
+					div .slick-slide {
 						height: 100vh !important;
-						object-fit: cover;
-						filter: brightness(95%);
-					}
-					//чтобы анимация начиналась на ТЕКУЩЕМ слайде и на нём же заканчивалась, а НЕ начиналась на ПЕРВОМ СЛАЙДЕ и заканчивалась на одном из последующих (до кот. по времени долистает)
-					&.slick-slide.slick-current.slick-active img{
-						animation: slider_scale 8000ms  linear infinite;
-						@keyframes slider_scale {
-							from {
-								transform: scale(1);
-							}
-							to {
-								transform: scale(1.3);
+						img {
+							width: 102% !important;
+							height: 100vh !important;
+							object-fit: cover;
+							filter: brightness(92%);
+						}
+						//чтобы анимация начиналась на ТЕКУЩЕМ слайде и на нём же заканчивалась, а НЕ начиналась на ПЕРВОМ СЛАЙДЕ и заканчивалась на одном из последующих (до кот. по времени долистает)
+						&.slick-slide.slick-current.slick-active img{
+							animation: slider_scale 8000ms  linear infinite;
+							@keyframes slider_scale {
+								from {
+									transform: scale(1);
+								}
+								to {
+									transform: scale(1.3);
+								}
 							}
 						}
 					}
 				}
 			}
 		}
-	}
-	// Triangle on the middle of the front-page
-	section.front_content {
-		.clipboard {
-			display: flex;
-			justify-content: center;
-			position: absolute;
-			top: 0;
-			left: 10px;
-			right: 10px;
-			bottom: 0;
-			background-color: #d3d0c9;
-			background: url('../img/bg_body.jpg') center/cover;
-			z-index: 5;
-			width: 25%;
-			height: 100%;
-			margin: 0 auto;
-			clip-path: polygon(50% 100%, 0 0, 100% 0);
-			filter: brightness(150%) contrast(120%);
-			&>img{
-				display: block;
-				position: relative;
-				width: 170px;
-				height: 140px;
-				object-fit: contain;
-				margin: 3rem 5rem 5rem;
-				box-shadow: 0 0 30px 2px #fff;
-				border-radius: 50%;
-				padding: 5px;
+		// Triangle on the middle of the front-page
+		section.front_content {
+			.clipboard {
+				display: flex;
+				justify-content: center;
+				position: absolute;
+				top: 0;
+				left: 10px;
+				right: 10px;
+				bottom: 0;
+				background-color: #d3d0c9;
+				background: url('../img/bg_body.jpg') center/cover;
+				z-index: 5;
+				width: 25%;
+				height: 100%;
+				margin: 0 auto;
+				clip-path: polygon(50% 100%, 0 0, 100% 0);
+				filter: brightness(150%) contrast(120%);
+				&>img{
+					display: block;
+					position: relative;
+					width: 170px;
+					height: 140px;
+					object-fit: contain;
+					margin: 3rem 5rem 5rem;
+					box-shadow: 0 0 30px 2px #fff;
+					border-radius: 50%;
+					padding: 5px;
+				}
 			}
 		}
-	}
-	div.interactive_studio{
-		@include direction_link;
-		left: -100%;
-		clip-path: polygon(0 0, 0% 100%, 100% 50%);
-		animation: interactive_studio_move 2s ease-in-out .3s forwards;
-		@keyframes interactive_studio_move {
-			from {
-				left: -100%;
-			}
-			to {
-				left: 0;
-			}
-		}
-	}
-	div.interactive_school{
-		@include direction_link;
-		right: -100%;
-		clip-path: polygon(100% 0, 0 50%, 100% 100%);
-		animation: interactive_school_move 2s ease-in-out .3s forwards;
-		@keyframes interactive_school_move {
-			from {
-				right: -100%;
-			}
-			to {
-				right: 0;
+		div.interactive_studio{
+			@include direction_link;
+			left: -100%;
+			clip-path: polygon(0 0, 0% 100%, 100% 50%);
+			animation: interactive_studio_move 2s ease-in-out .3s forwards;
+			@keyframes interactive_studio_move {
+				from {
+					left: -100%;
+				}
+				to {
+					left: 0;
+				}
 			}
 		}
-		.interactive_school_wrapper {
-			a.direction_item {
-				position: relative;
-				left: 9%;
+		div.interactive_school{
+			@include direction_link;
+			right: -100%;
+			clip-path: polygon(100% 0, 0 50%, 100% 100%);
+			animation: interactive_school_move 2s ease-in-out .3s forwards;
+			@keyframes interactive_school_move {
+				from {
+					right: -100%;
+				}
+				to {
+					right: 0;
+				}
+			}
+			.interactive_school_wrapper {
+				a.direction_item {
+					position: relative;
+					left: 9%;
+				}
 			}
 		}
 	}

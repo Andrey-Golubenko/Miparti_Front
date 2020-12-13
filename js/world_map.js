@@ -2,6 +2,40 @@
 
 jQuery(function () {
 "use strict";
+/************************************************************************************/
+/************************************* PLANETS  *************************************/
+/************************************************************************************/
+
+// Appearance Transforming planets, during Scroll
+    const planetsContent = $('.transforming_planets_content');
+    // Moving planets is available only if screen-size is < 768px and central-planet is Invisible
+    const studioPlanetsMediaQuery = window.matchMedia('(min-width: 768px)');
+    const centerIsInvisible = $('#content_spheres').offset().top > document.documentElement.clientHeight; // true, if offset.top of central-planet is more than viewport.height of browser window
+
+    if (studioPlanetsMediaQuery.matches && centerIsInvisible) {
+        planetsContent.removeClass('running');
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 200) {
+                planetsContent.addClass('running');
+            }
+            else {
+                planetsContent.removeClass('running');
+            }
+        });
+    }
+
+    // Scroll from transforming_planets to world_map
+    //const docRootCountry = $('html, body'); // Variable for ScrollS to AnchorS
+    $('.move_to_map, .content_spheres_bottom_right_tooltip').click(function (e) {
+        e.preventDefault();
+        docRoot.animate({scrollTop: $('#anchor_from_earth').offset().top}, 800);
+    });
+
+/************************************************************************************/
+/************************************************************************************/
+
+
+
 
 /*** ВСПОМОГАТЕЛЬНЫЙ ОБЪЕКТ с Информацие по странам к Карте ***/
     const countries_obj = {

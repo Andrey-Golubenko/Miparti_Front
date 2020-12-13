@@ -219,7 +219,7 @@
 		.underline, .sub_underline{
 			display: inline-block;
 			position: relative;
-			left: -500%;
+			left: -700%;
 			width: 101%;
 			height: 1px;
 			background-color: $gold-color;
@@ -403,12 +403,13 @@
 			text-align: center;
 			display: block;
 			color: #fff;
-			font: 1.1rem Arial;
-			font-weight: bold;
+			font: bold 1.1rem Arial;
 			-webkit-text-stroke: .8px #000;
-			text-shadow: 0 0 50px #fff;
 			padding:10px 10px;
 			border-radius: 10px;
+			@media (min-width: 1024px) {
+				text-shadow: 0 0 50px #fff;
+			}
 		}
 	}
 }

@@ -154,12 +154,6 @@ const generateFrontPageBody = () =>{
                                         </a>
                                         <ul class="nav_link_sub_menu">
                                             <li class="nav_link_sub_menu_item">
-                                                <a href="./rider.html">
-                                                    <p>Райдер</p>
-                                                    <span class="sub_underline"></span>
-                                                </a>
-                                            </li>
-                                            <li class="nav_link_sub_menu_item">
                                                 <a href="./studio_photos.html">
                                                     <p>Фото</p>
                                                     <span class="sub_underline"></span>
@@ -168,6 +162,12 @@ const generateFrontPageBody = () =>{
                                             <li class="nav_link_sub_menu_item">
                                                 <a href="./studio_videos.html">
                                                     <p>Видео</p>
+                                                    <span class="sub_underline"></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav_link_sub_menu_item">
+                                                <a href="./rider.html">
+                                                    <p>Райдер</p>
                                                     <span class="sub_underline"></span>
                                                 </a>
                                             </li>
