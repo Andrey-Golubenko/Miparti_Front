@@ -34,9 +34,9 @@ const generateFrontPageBody = () =>{
                                 <img src="./img/miparti_logo_plus.png" alt="">
                             </div>
                             <div class="btn_push_wrapper">
-                                <button class="push">
+                                <button class="push btn_menu_active">
                                     <span class="small_menu_triangle"></span>
-                                    <span class="btn_push_text btn_menu_active">МЕНЮ</span>
+                                    <span class="btn_push_text">МЕНЮ</span>
                                     <span class="btn_cover_text">&#10006;</span>
                                 </button>
                             </div>
