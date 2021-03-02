@@ -2,9 +2,9 @@ jQuery(function () {
     'use strict';
 
 
-    /************************************************************************************/
-    /*************************************** FRONT-PAGE *********************************/
-    /************************************************************************************/
+/************************************************************************************/
+/*************************************** FRONT-PAGE *********************************/
+/************************************************************************************/
 
 // Sliders (left and right from FRONT-PAGE)
     $('.slider_left').slick({
@@ -49,13 +49,13 @@ jQuery(function () {
     });
 
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 
-    /************************************************************************************/
-    /******************** MENU for All-Pages (besides Front-Page) ***********************/
-    /************************************************************************************/
+/************************************************************************************/
+/******************** MENU for All-Pages (besides Front-Page) ***********************/
+/************************************************************************************/
 
     // MENU button (from front-page)
     const frontMenuBtnPush = $('button.push');
@@ -81,41 +81,28 @@ jQuery(function () {
     const mediaQueryHoverMenu = window.matchMedia('(min-width: 1024px)');
     let menuHeight = 0;
     if (mediaQueryHoverMenu.matches) {
-        menuHeight = 90;
+        menuHeight = 80;
     }
     else {
-        menuHeight = 60;
+        menuHeight = 50;
     }
 
-    // Fix MENU on a TOP
-    $(window).scroll(function () {
-        const scrolled = $(this).scrollTop();
-        if(!$('.head_menu').hasClass('mobile_menu_open')) {
-            if (scrolled > menuHeight){
-                componentMenu.addClass('fixing_menu');
-            }
-            else {
-                componentMenu.removeClass('fixing_menu');
-            }
+    // Pix MENU on a TOP with passive event listener
+    const pinMenu = () => {
+        if (window.pageYOffset > menuHeight && !componentMenu.hasClass('mobile_menu_open')){
+            componentMenu.addClass('fixing_menu');
         }
-    });
+        else {
+            componentMenu.removeClass('fixing_menu');
+        }
+    };
+    pinMenu();
+    window.addEventListener('scroll', pinMenu, {passive: true});
 
-
-    // Add Current-class FOR UNDERLINE (only with back)
-    /*   const navLink = $('.nav_menu ul li a');
-       navLink.click(function () {
-           navLink.removeClass('menu_current_item');
-           $(this).toggleClass('menu_current_item');
-       });
-
-       const subNavLink = $('.nav_link_sub_menu ul li a');
-       subNavLink.click(function () {
-           $(this).toggleClass('sub_menu_current_item');
-       });*/
 
     // Hover For MENU and DROP-DOWN Sub-Menu only if screen size more than 1024px includes
     if (mediaQueryHoverMenu.matches) {
-        $('.nav_menu ul li.nav_link a p, .nav_menu ul li.nav_link a .nav_link_pin, .front_nav_menu_content ul li.nav_link a').mouseenter(function (e) {
+        $('.nav_menu ul li.nav_link a p, .nav_menu ul li.nav_link a .nav_link_pin').mouseenter(function (e) {
             const currLink = $(e.target.closest('li.nav_link'));
             currLink.find('p:first').css({'color': '#eac15a'});
             currLink.find('.underline').css({'left': '0'});
@@ -129,33 +116,44 @@ jQuery(function () {
                 'transform-origin': 'center center',
                 'transform': 'rotate(45deg)'
             });
-            currLink.find('ul.nav_link_sub_menu').slideDown(500);
+            currLink.find('ul.sub-menu').slideDown(500);
         });
-        $('.nav_menu ul li.nav_link, .front_nav_menu_content ul li.nav_link a').mouseleave(function (e) {
+        $('.nav_menu ul li.nav_link').mouseleave(function (e) {
             const currLink = $(e.target.closest('li.nav_link'));
-            currLink.find('p').not('.menu_current_item p').css({'color':'#fff'});
-            currLink.find('.underline').css({'left':'-500%'});
-            currLink.find('.nav_link_arrow_left').css({
-                'background-color': '#fff',
-                'transform-origin': 'center center',
-                'transform': 'rotate(45deg)'
-            });
-            currLink.find('.nav_link_arrow_right').css({
-                'background-color': '#fff',
-                'transform-origin': 'center center',
-                'transform': 'rotate(-45deg)'
-            });
-            $('ul.nav_link_sub_menu').slideUp(500);
+                  currLink.find('p').not('.menu_current_item p').css({'color':'#fff'});
+                  currLink.find('.underline').css({'left':'-500%'});
+                  currLink.find('.nav_link_arrow_left').css({
+                    'background-color': '#fff',
+                    'transform-origin': 'center center',
+                    'transform': 'rotate(45deg)'
+                  });
+                  currLink.find('.nav_link_arrow_right').css({
+                    'background-color': '#fff',
+                    'transform-origin': 'center center',
+                    'transform': 'rotate(-45deg)'
+                  });
+            $('ul.sub-menu').slideUp(500);
         });
     }
 
-    /************************************************************************************/
-    /************************************************************************************/
+    // Underline in nav-menu in full-screen version of front-page
+    const frontMenuActiveItem = $('.front_nav_menu_content ul li.nav_link a');
+    frontMenuActiveItem.mouseenter(function (e) {
+              const currLink = $(e.target.closest('li.nav_link'));
+              currLink.find('.underline').css({'left': '0'});
+          });
+    frontMenuActiveItem.mouseleave(function (e) {
+              const currLink = $(e.target.closest('li.nav_link'));
+              currLink.find('.underline').css({'left':'-500%'});
+          });
+
+/************************************************************************************/
+/************************************************************************************/
 
 
-    /************************************************************************************/
-    /***************************************** MOBILE MENU ******************************/
-    /************************************************************************************/
+/************************************************************************************/
+/***************************************** MOBILE MENU ******************************/
+/************************************************************************************/
 
 
     //Show sub_menu FOR MOBILE Menu
@@ -165,7 +163,7 @@ jQuery(function () {
             const currentMenuPoint = $(e.target.closest('li.nav_link'));
             const changeArrowClass = currentMenuPoint.find('.nav_link_pin');
             changeArrowClass.toggleClass('arrow_state_change');
-            currentMenuPoint.find('ul.nav_link_sub_menu').slideToggle();
+            currentMenuPoint.find('ul.sub-menu').slideToggle();
             e.preventDefault();
         });
     }
@@ -178,8 +176,8 @@ jQuery(function () {
 
 
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 // Button UP
     $('footer').append('<div class="up_btn"></div>');
@@ -216,13 +214,13 @@ jQuery(function () {
         }
     });
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 
-    /************************************************************************************/
-    /****************************************** VIDEO ITEM ******************************/
-    /************************************************************************************/
+/************************************************************************************/
+/****************************************** VIDEO ITEM ******************************/
+/************************************************************************************/
 
     // magnific-popup Iframe - video YouTube in iframe
     $('.popup-youtube').magnificPopup({
@@ -267,15 +265,15 @@ jQuery(function () {
     import('./modules/module_video_item.js')
         .then(module => {
             module.replacingItems();
-        });
+            });
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 
-    /************************************************************************************/
-    /*********************************** FOTO-Albums TABS *******************************/
-    /************************************************************************************/
+/************************************************************************************/
+/*********************************** FOTO-Albums TABS *******************************/
+/************************************************************************************/
 
     const photo_albums = $('h2[class*="studio_photos_link_"]');
     const photo_images = $('div[class*="studio_photos_link_"]');
@@ -317,10 +315,6 @@ jQuery(function () {
     });
 
 
-    /***  IF without DYNAMIC IMPORT of Init Adaptive-Slider then
-     Photo-Tabs __ONLY AFTER Initialization Photo Tabs__
-     If init this __BEFORE Init. Slider-on-Albums-List __ then will destroy 'click' on Photo-Tabs ***/
-
     $('.studio_photos_albums h2').click(function(){
         const clickedClass = this.className.slice(0, 21);
         $('div[class*="studio_photos_link_"]').hide();
@@ -330,23 +324,25 @@ jQuery(function () {
     });
     $('h2.studio_photos_link_0').click();
 
-    /*** IF without DYNAMIC IMPORT of Init Adaptive-Slider then
-     Initialization Slider-on-Albums-List __ONLY BEFORE Initialization Photo-Tabs__
-     If init this __AFTER Init. Photo-Tabs __ then will destroy 'click' on Photo-Tabs ***/
+    /*
+     * Inite Slick-Slider (SS) in this way because of the SS destroy any others
+     * eventListeners on sliders items, when SS in mode - 'Responsive Display' ChangE
+     * its settings according to breakpoints of window size
+    */
 
     // Dynamic import of Init Adaptive-Slider
     import('./modules/module_adaptive_slider.js')
         .then(module => {
             module.adaptiveSlider('.studio_photos_albums');
-        });
+            });
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 
-    /************************************************************************************/
-    /************************************** TIME-TABLE **********************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************** TIME-TABLE **********************************/
+/************************************************************************************/
 
     /*
      * Inite Slick-Slider (SS) in this way because of the SS destroy any others
@@ -400,7 +396,7 @@ jQuery(function () {
                 timeTablePopupInit(); // Time-table popup
             }
             else
-                elemTimeTableSliderInit.slick({
+            elemTimeTableSliderInit.slick({
                     dots: false,
                     infinite: true,
                     speed: 500,
@@ -448,42 +444,38 @@ jQuery(function () {
     timeTableMediaQueryPhone.addListener(handleTimeTablePhone);
     handleTimeTablePhone(timeTableMediaQueryPhone);
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 
-    /************************************************************************************/
-    /************************** DANCE_STAGING - scrolling to anchor *********************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************** DANCE_STAGING - scrolling to anchor *********************/
+/************************************************************************************/
 
-    // Scrolling to wedding_dance
-    $('.wedding_dance').click( function (e) {
-        e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_wedding_dance').offset().top - '80'}, 800);
+ // Scrolling to wedding_dance
+    $('#scroll_anchor_from_wedding').click( function (e) {
+        docRoot.animate({scrollTop: $('.scroll_anchor_from_wedding').offset().top - '80'}, 800);
     });
 // Scrolling to choreography_creating
-    $('.choreography_creating').click( function (e) {
-        e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_choreography_creating').offset().top - '80'}, 800);
+    $('#scroll_anchor_from_choreography').click( function (e) {
+        docRoot.animate({scrollTop: $('.scroll_anchor_from_choreography').offset().top - '80'}, 800);
     });
 // Scrolling to master_classes
-    $('.master_classes').click( function (e) {
-        e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_master_classes').offset().top - '80'}, 800);
+    $('#scroll_anchor_from_masters').click( function (e) {
+        docRoot.animate({scrollTop: $('.scroll_anchor_from_masters').offset().top - '80'}, 800);
     });
 // Scrolling to artists_training
-    $('.artists_training').click( function (e) {
-        e.preventDefault();
-        docRoot.animate({scrollTop: $('#anchor_from_artists_training').offset().top - '80'}, 800);
+    $('#scroll_anchor_from_training').click( function (e) {
+        docRoot.animate({scrollTop: $('.scroll_anchor_from_training').offset().top - '80'}, 800);
     });
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 
-    /************************************************************************************/
-    /************************************ ABOUT - slider ********************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************ ABOUT - slider ********************************/
+/************************************************************************************/
 
     $('.about_slider').slick({
         autoplay: true,
@@ -494,7 +486,7 @@ jQuery(function () {
     });
 
 
-    /************************************************************************************/
-    /************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
 
 });

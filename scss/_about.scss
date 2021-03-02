@@ -5,11 +5,11 @@ section.about {
 	}
 	.about_slider {
 		@include aligning_element;
-		margin-bottom: 3rem;
+		margin-bottom: 5rem;
 		button.slick-prev.slick-arrow, button.slick-next.slick-arrow {
 			position: absolute;
 			background: url("../img/arrow_for_all.svg") transparent no-repeat;
-			border: none;
+			border: 0;
 			cursor: pointer;
 			width: 34px !important;
 			height: 34px !important;
@@ -30,7 +30,7 @@ section.about {
 		.slick-list.draggable {
 			width: 70%;
 			height: 450px;
-			border: 1px solid #fff;
+			box-shadow: 0 0 50px 5px #fff;
 			@media (max-width: 767px) {
 				width: 90%;
 				height: 300px !important;
@@ -64,6 +64,11 @@ section.about {
 			margin-bottom: 0;
 			.common_description_text {
 				margin-bottom: 0;
+			}
+			.common_description_text_full {
+				&:first-letter {
+					font: inherit;
+				}
 			}
 		}
 	}

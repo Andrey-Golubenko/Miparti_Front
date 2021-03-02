@@ -39,7 +39,7 @@
 
 // Section (footer & header)  separator
 .separator {
-	border: none;
+	border: 0;
 	height: 2px;
 	margin: 3rem 0;
 	background-image: linear-gradient(to right, transparent, $gold-color, transparent);
@@ -81,6 +81,10 @@ html.magnificPopupNoScroll {
 }
 .mfp-wrap.mfp-close-btn-in.mfp-auto-cursor.mfp-ready {
 	z-index: 99999;
+}
+
+button.mfp-close {
+	font-size: 2.25rem !important;
 }
 
 

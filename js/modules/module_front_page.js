@@ -67,7 +67,7 @@ const generateFrontPageBody = () =>{
                             </div>
                         </section>
                         <div class="interactive_studio">
-                            <div class="interactive_studio_wrapper">
+                            <div class="interactive_studio_inner">
                                 <a class="direction_item" href="./studio.html">
                                     <p>ШОУ-БАЛЕТ</p>
                                     <hr>
@@ -78,7 +78,7 @@ const generateFrontPageBody = () =>{
                             </div>
                         </div>
                         <div class="interactive_school">
-                            <div class="interactive_school_wrapper">
+                            <div class="interactive_school_inner">
                                 <a class="direction_item" href="./school.html">
                                     <p>ШКОЛА ТАНЦА</p>
                                     <hr>
@@ -152,7 +152,7 @@ const generateFrontPageBody = () =>{
                                             </div>
                                             <span class="underline"></span>
                                         </a>
-                                        <ul class="nav_link_sub_menu">
+                                        <ul class="sub-menu">
                                             <li class="nav_link_sub_menu_item">
                                                 <a href="./studio_photos.html">
                                                     <p>Фото</p>
@@ -190,7 +190,7 @@ const generateFrontPageBody = () =>{
                                             </div>
                                             <span class="underline"></span>
                                         </a>
-                                        <ul class="nav_link_sub_menu">
+                                        <ul class="sub-menu">
                                             <li class="nav_link_sub_menu_item">
                                                 <a href="#">
                                                     <p>Фото</p>
@@ -259,7 +259,7 @@ const generateFrontPageBody = () =>{
                             </div>
                         </section>
                         <div class="interactive_studio">
-                            <div class="interactive_studio_wrapper">
+                            <div class="interactive_studio_inner">
                                 <a class="direction_item" href="./studio.html">
                                     <p>ШОУ-БАЛЕТ</p>
                                     <hr>
@@ -268,7 +268,7 @@ const generateFrontPageBody = () =>{
             
                         </div>
                         <div class="interactive_school">
-                            <div class="interactive_school_wrapper">
+                            <div class="interactive_school_inner">
                                 <a class="direction_item" href="./school.html">
                                     <p>ШКОЛА ТАНЦА</p>
                                     <hr>

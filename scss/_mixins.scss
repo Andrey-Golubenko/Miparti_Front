@@ -109,7 +109,7 @@
 	width: 350px;
 	height: 450px;
 	@include aligning_element;
-	.interactive_school_wrapper, .interactive_studio_wrapper {
+	.interactive_school_inner, .interactive_studio_inner {
 		@include aligning_element;
 		flex-direction: column;
 		a.direction_item{
@@ -150,7 +150,7 @@
 			}
 			&>hr {
 				background: $gold-color;
-				border: none;
+				border: 0;
 				height: 2.2px;
 				box-shadow: 0 0 0 .7px #000;
 				margin-top: 5px;
@@ -441,23 +441,28 @@
 		margin-bottom: 1rem;
 		.common_description_item {
 			margin-bottom: 1.7rem;
-			.common_description_text {
+			.common_description_text, .common_description_text > p {
 				@include common_description_text;
 			}
-			.common_description_text_full {
+			.common_description_text_full, .common_description_text_full > p {
 				@include common_description_text;
 				text-align: left;
+			}
+			.common_description_text_full {
 				display: none;
 			}
 			.common_description_text_readMore {
 				display: flex;
 				.common_description_text_note {
 					@include common_description_text;
-					font-size: 1.1rem;
-					font-style: italic;
+					font: italic 1.1rem 'Lora';
 					color: $gold-color;
 					margin-left: auto;
 					text-align: right;
+					&:first-letter {
+						font-family: 'Lora', serif;
+						color: $gold-color;
+					}
 				}
 				@include nav_link_and_text_open;
 			}
@@ -480,12 +485,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: calc(100% - 2px);
-	height: calc(100% + 2px);
+	width: 100% /*calc(100% - 2px)*/;
+	height: 100% /*calc(100% + 2px)*/;
 	border: 2px solid;
-	border-top: none;
-	border-bottom: none;
-	border-right: none;
+	border-top: 0;
+	border-bottom: 0;
+	border-right: 0;
 	border-image: linear-gradient(to top, transparent, $gold-color, transparent) 10%;
 	padding: 1rem 1rem 0;
 	@media (max-width: 767px) {
@@ -496,11 +501,22 @@
 		font: 1.125rem "Lora", sans-serif;
 		color: #ebedec;
 		margin-bottom: 1rem;
-		@media (max-width: 1024px) {
-			font-size: 1.1rem !important;
-		}
+
 		@media (max-width: 767px) {
 			margin-bottom: 0;
+		}
+	}
+	& p {
+		@media (max-width: 1024px) {
+			font-size: .9rem !important;
+		}
+		@media (max-width: 375px) {
+			font-size: .81rem !important;
+		}
+	}
+	&>time {
+		@media (max-width: 1024px) {
+			font-size: 1.05rem !important;
 		}
 		@media (max-width: 375px) {
 			font-size: .9rem !important;
@@ -514,6 +530,7 @@
 	.subscription_form_link {
 		@include timetable_text;
 		padding: 0;
+		width: 100%;
 		height: 100%;
 		background-color: #000;
 		box-shadow: 0 0 50px 10px $gold-color inset;
@@ -526,8 +543,8 @@
 		}
 		&>a {
 			@include aligning_element;
-			width: 100%;
-			height: 100%;
+			width: calc(100% + 6px);
+			height: calc(100% + 15px);
 			flex-direction: column;
 			&>p {
 				margin-bottom: 0;
@@ -565,6 +582,7 @@
 		.signUp_form_heading {
 			margin-top: 2rem;
 			margin-bottom: 1rem;
+			text-align: center;
 			@media (max-width: 425px) {
 				font-size: 1.35rem;
 			}
@@ -634,9 +652,11 @@
 
 				&>input.inputBox,
 				&>textarea.inputBox {
+					position: relative;
+					z-index: 5;
 					background-color: transparent;
 					color: #fff;
-					border: none;
+					border: 0;
 					border-bottom: 1px solid #d68b02;
 					width: 100%;
 					height: 100%;
@@ -650,7 +670,7 @@
 				&>input.inputBox:focus,
 				&>textarea.inputBox:focus {
 					border-radius: 10px;
-					border: none;
+					border: 0;
 					box-shadow: 0 0 8px 2px $gold-color;
 				}
 				&>input:invalid,
@@ -659,7 +679,7 @@
 			&>input[type='submit'] {
 				display: block;
 				margin: 0 auto;
-				border: .5px solid #ebedec;
+				border: .5px solid grey;
 				border-radius: 10px;
 				background-color: transparent;
 				font: 1.1rem 'Lora', sans-serif;
@@ -672,8 +692,8 @@
 					font-size: .95rem;
 				}
 				&:hover {
-					box-shadow: 0 0 20px  #ebedec;
-				}
+					box-shadow: 0 0 12px grey inset, 0 4px 10px grey;
+					border: .5px solid #fff;				}
 			}
 		}
 	}
@@ -692,15 +712,15 @@
 
 @mixin single_video_item {
 	.videos_item {
-		margin: 0 4% 2rem;
-		@media (max-width: 767px) {
+		margin: 4rem 2% 6rem;
+		@media (max-width: 768px) {
 			margin: 0 0 2rem;
 		}
 		.videos_item_heading {
 			@include aligning_element;
 			&>h3 {
 				text-align: center;
-				font: 2rem 'Lora';
+				font: 2.15rem 'Lora';
 				color: #ebedec;
 				margin-bottom: 2.5rem;
 				padding-bottom: 1.5rem;
@@ -714,7 +734,7 @@
 			}
 			.videos_item_content {
 				display: flex;
-				width: 59%;
+				width: 58%;
 				@media (max-width: 1124px) {
 					width: 100%;
 					margin-bottom: 3rem;
@@ -722,7 +742,6 @@
 				@media (max-width: 768px) {
 					flex-direction: column;
 				}
-
 				.videos_item_content_video {
 					width: 74%;
 					display: flex;
@@ -733,7 +752,7 @@
 					}
 					.videos_item_content_video_inner {
 						width: 100%;
-						height: 335px;
+						min-height: 335px;
 						display: flex;
 						justify-content: center;
 						align-items: center;
@@ -866,9 +885,9 @@
 			}
 			.videos_item_description {
 				@include common_description_text;
-				margin: 0 0 0 3%;
+				margin: 0 0 0 2%;
 				display: block;
-				width: 39%;
+				width: 38%;
 				@media (max-width: 1124px) {
 					width: 100%;
 				}
@@ -878,6 +897,11 @@
 					font-size: 1.9rem;
 					color: $gold-color;
 					margin-bottom: 2rem;
+					&:first-letter {
+						font-size: 2.5rem;
+						line-height: 1.2;
+						margin: 0 0 0 1rem;
+					}
 				}
 				@include section_description_with_adds;
 				.common_description_text, .common_description_text_full  {

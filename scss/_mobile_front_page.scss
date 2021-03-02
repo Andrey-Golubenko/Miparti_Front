@@ -2,7 +2,7 @@
 div.mobile_front_wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-end;
 	section.mobile_front_menu {
 		position: relative;
 		top: 0;
@@ -162,7 +162,7 @@ div.mobile_front_wrapper {
 							}
 							@include menu_underline;
 						}
-						ul.nav_link_sub_menu {
+						ul.sub-menu {
 							display: none;
 							flex-direction: column;
 							align-items: flex-start;
@@ -273,7 +273,7 @@ div.mobile_front_wrapper {
 		@include direction_link;
 		left: -100%;
 		width: 50%;
-		height: 55%;
+		height: 86%;
 		clip-path: polygon(0 0, 0% 100%, 100% 50%);
 		animation: interactive_studio_move 2s ease-in-out .3s forwards;
 		@keyframes interactive_studio_move {
@@ -284,7 +284,7 @@ div.mobile_front_wrapper {
 				left: 0;
 			}
 		}
-		.interactive_studio_wrapper {
+		.interactive_studio_inner {
 			a.direction_item{
 				display: inline-block;
 				text-align: center;
@@ -309,7 +309,7 @@ div.mobile_front_wrapper {
 		@include direction_link;
 		right: -100%;
 		width: 50%;
-		height: 55%;
+		height: 86%;
 		clip-path: polygon(100% 0, 0 50%, 100% 100%);
 		animation: interactive_school_move 2s ease-in-out .3s forwards;
 		@keyframes interactive_school_move {
@@ -320,7 +320,7 @@ div.mobile_front_wrapper {
 				right: 0;
 			}
 		}
-		.interactive_school_wrapper {
+		.interactive_school_inner {
 			a.direction_item{
 				display: inline-block;
 				text-align: center;
