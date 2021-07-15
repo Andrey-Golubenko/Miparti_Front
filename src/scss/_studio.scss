@@ -1,0 +1,759 @@
+
+section.transforming_planets {
+	@media (max-width: 767px) { //Phone
+		margin-bottom: 5rem;
+	}
+	@include section_description_with_adds;
+	.common_description {
+		margin-bottom: 3.5rem;
+		.common_description_item {
+			.common_description_text {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+	.transforming_planets_content {
+		@include aligning_element;
+		width: 100%;
+		/*height: 600px;*/
+		padding: 222.5px 0;
+		position: relative;
+		@media (min-width: 1024px) and (max-width: 1130px) { //Desktop
+			transform: scale(.95) translateX(2rem);
+		}
+		@media (min-width: 767px) and (max-width: 1024px) { //Tablet
+			transform: scale(.71) translateX(2rem);
+			height: 400px;
+		}
+		@media (max-width: 767px) { //Phone
+			height: 1300px;
+		}
+		div#content_spheres {
+			width: 100%;
+			position: relative;
+			&>a {
+				display: block;
+				width: 155px;
+				height: 155px;
+				margin: 0 auto;
+				position: relative;
+				z-index: 20;
+				.content_spheres_center_image {
+					width: 100%;
+					height: 100%;
+					border: 1px solid $gold-color;
+					border-radius: 50%;
+					border-color: transparent;
+					background: #000;
+					box-shadow: 0 0 70px 17px $gold-color;
+					filter: brightness(110%);
+				}
+			}
+			ul#content_lines {
+				list-style: none;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 10;
+				li.content_lines_top_left {
+					@include transforming_lines;
+					transform: rotate(235deg);
+					@media (max-width: 767px) { //Phones
+						transform: rotate(90deg) translateX(240%) translateY(-2px);
+					}
+					animation: move_top_left_reverse .8s linear forwards;
+					@keyframes move_top_left_reverse {
+						0% {
+							width: 205px;
+						}
+						100% {
+							width: 0;
+						}
+					}
+					a.content_spheres_top_left_link {
+						position: absolute;
+						bottom: 800%;
+						left: 135%;
+						transform: rotate(125deg);
+						width: 135px;
+						height: 135px;
+						display: inline-flex;
+						align-items: center;
+						@media (max-width: 767px) {
+							width: 140px;
+							height: 140px;
+							transform: rotate(270deg);
+							bottom: -8500%;
+							left: 114%;
+						}
+						&>p.content_spheres_top_left_tooltip {
+							@include transforming_content_tooltip;
+							margin-right: 1rem;
+							animation: tooltip_reverse .4s linear forwards;
+							@media (max-width: 767px) {
+								margin: 0 0 0 1rem;
+							}
+							@media (max-width: 312px) {
+								font-size: 0.75rem !important;
+								margin: 0 0 0 2rem;
+							}
+						}
+						&>img {
+							@include transforming_content_sphere_image;
+							animation: tooltip_spheres_reverse .7s  linear forwards;
+						}
+					}
+					span#layerBall_top_left {
+						@include transforming_ball;
+						left: 200px;
+						top: -3px;
+						@media (max-width: 767px) { // Phone
+							left: 133px;
+						}
+					}
+				}
+				li.content_lines_top_right {
+					@include transforming_lines;
+					transform: rotate(330deg);
+					@media (max-width: 767px) {
+						transform: rotate(270deg) translateX(277%);
+					}
+					animation: move_top_right_reverse .9s linear forwards;
+					@keyframes move_top_right_reverse {
+						0% {
+							width: 370px;
+						}
+						100% {
+							width: 0;
+						}
+					}
+					a.content_spheres_top_right_link {
+						position: absolute;
+						bottom: -1400%;
+						left: 82%;
+						transform: rotate(30deg);
+						width: 170px;
+						height: 170px;
+						display: inline-flex;
+						align-items: center;
+						@media (max-width: 767px) { //Phones
+							transform: rotate(90deg);
+							bottom: 250%;
+							left: 115%;
+							width: 140px;
+							height: 140px;
+						}
+						&>p.content_spheres_top_right_tooltip {
+							@include transforming_content_tooltip;
+							margin-right: 1rem;
+							font-size: 1.3rem;
+							animation: tooltip_reverse .4s linear forwards;
+							@media (max-width: 767px) { //Phones
+								font-size: 1.05rem;
+								margin-right: 0;
+							}
+							@media (max-width: 312px) {
+								font-size: 0.8rem !important;
+								margin: 0 .2rem 0 1.3rem;
+							}
+						}
+						&>img {
+							@include transforming_content_sphere_image;
+							animation: tooltip_spheres_reverse .7s linear forwards;
+						}
+					}
+					span#layerBall_top_right {
+						@include transforming_ball;
+						left: 365px;
+						top: -3px;
+						@media (max-width: 767px) { // Phone
+							left: 134px;
+						}
+					}
+				}
+				li.content_lines_bottom_left {
+					@include transforming_lines;
+					transform: rotate(162deg);
+					@media (max-width: 767px) { //Phone
+						transform: rotate(-90deg);
+					}
+					animation: move_bottom_left_reverse .75s linear forwards;
+					@keyframes move_bottom_left_reverse {
+						0% {
+							width: 380px;
+						}
+						100% {
+							width: 0;
+						}
+					}
+					a.content_spheres_bottom_left_link {
+						position: absolute;
+						top: -4100%;
+						left: 104%;
+						transform: rotate(198deg);
+						width: 170px;
+						height: 170px;
+						display: inline-flex;
+						align-items: center;
+						@media (max-width: 767px) { //Phone
+							transform: rotate(90deg);
+							top: -3400%;
+							left: 110%;
+							width: 140px;
+							height: 140px;
+						}
+						&>p.content_spheres_bottom_left_tooltip {
+							@include transforming_content_tooltip;
+							margin-left: 1.5rem;
+							margin-top: 3rem;
+							font-size: 1.3rem;
+							animation: tooltip_reverse .4s linear forwards;
+							@media (max-width: 767px) {
+								margin: 0;
+								font-size: 1.2rem;
+							}
+							@media (max-width: 340px) {
+								font-size: 1.05rem;
+							}
+							@media (max-width: 312px) {
+								font-size: 0.85rem !important;
+							}
+						}
+						&>img {
+							@include transforming_content_sphere_image;
+							animation: tooltip_spheres_reverse .7s linear forwards;
+							@media (max-width: 767px) {
+								margin-right: .2rem;
+							}
+							@media (max-width: 312px) {
+								margin-right: -.2rem;
+							}
+						}
+					}
+					span#layerBall_bottom_left {
+						@include transforming_ball;
+						left: 375px;
+						top: -3px;
+						@media (max-width: 767px) { //Phone
+							left: 214px;
+						}
+					}
+				}
+				li.content_lines_bottom_right {
+					@include transforming_lines;
+					transform: rotate(17deg);
+					@media (max-width: 767px) { //Phone
+						transform: rotate(90deg) translateY(-2px);
+					}
+					animation: move_bottom_right_reverse .65s linear forwards;
+					@keyframes move_bottom_right_reverse {
+						0% {
+							width: 300px;
+						}
+						100% {
+							width: 0;
+						}
+					}
+					a.content_spheres_bottom_right_link {
+						position: absolute;
+						top: -1350%;
+						left: 35%;
+						transform: rotate(-17deg);
+						width: 170px;
+						height: 170px;
+						display: inline-flex;
+						align-items: center;
+						@media (max-width: 767px) { //Phone
+							transform: rotate(-90deg);
+							top: -1300%;
+							left: 92%;
+						}
+						&>p.content_spheres_bottom_right_tooltip {
+							@include transforming_content_tooltip;
+							white-space: pre;
+							margin-right: -1.5rem;
+							margin-top: 2rem;
+							font-size: 1.1rem;
+							animation: tooltip_reverse .5s linear forwards;
+							@media (max-width: 1130px) {
+								margin-top: 3rem;
+							}
+							@media (max-width: 767px) {
+								white-space: inherit;
+								text-align: center;
+								margin-right: -2.5rem;
+								margin-top: 0;
+							}
+							@media (max-width: 312px) {
+								font-size: 0.9rem !important;
+								margin: 0 -2.55rem 0 .7rem;
+							}
+						}
+						&>div.move_to_map {
+							display: inline-block;
+							transform: scale(0.5);
+							position: relative;
+							opacity: 0;
+							animation: tooltip_spheres_earth_reverse .7s linear forwards;
+							.globe-container {
+								position: relative;
+								display: inline-block;
+								width: 200px;
+								height: 200px;
+								.globe {
+									position: relative;
+									width: 100%;
+									height: 100%;
+									.globe-sphere {
+										position: absolute;
+										width: 100%;
+										height: 100%;
+										background-image:url('../img/studio_earth_svg/sphere-3.svg');
+										background-position: 0 0;
+										background-repeat: no-repeat;
+									}
+									.globe-worldmap {
+										position: absolute;
+										z-index: 99;
+										width: 100%;
+										height: 100%;
+										overflow: hidden;
+										border-radius: 50%;
+										box-shadow: 0 0 20px 10px #6491BA;
+										.globe-worldmap-back {
+											position: absolute;
+											width: 1000px;
+											height: 200px;
+											overflow: visible;
+											background: url('../img/studio_earth_svg/worldmap-8.svg') no-repeat 0px -220px;
+											animation: textureSpin 12s linear infinite;
+											@keyframes textureSpin {
+												from {
+													transform: translateX(0);
+												}
+												to {
+													transform: translateX(-47.5%);
+												}
+											}
+										}
+										.globe-worldmap-front {
+											position: absolute;
+											width: 1000px;
+											height: 200px;
+											overflow: visible;
+											background: url('../img/studio_earth_svg/worldmap-8.svg') no-repeat 0 0;
+											animation: textureSpinreverse 12s linear infinite;
+											@keyframes textureSpinreverse {
+												from {
+													transform: translateX(-47.5%);
+												}
+												to {
+													transform: translateX(0);
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					span#layerBall_bottom_right {
+						@include transforming_ball;
+						left: 295px;
+						top: -3px;
+						@media (max-width: 767px) { //Phone
+							left: 203px;
+						}
+					}
+				}
+			}
+			@keyframes tooltip_reverse {
+				0% {
+					transform: scale(1);
+					opacity: 1;
+				}
+				50% {
+					transform: scale(.9);
+					opacity: .7;
+				}
+				75% {
+					transform: scale(1.2);
+					opacity: .3;
+				}
+				100%  {
+					transform: scale(0);
+					opacity: 0;
+				}
+			}
+			@keyframes tooltip_spheres_reverse {
+				0% {
+					transform: scale(.9);
+					opacity: .9;
+				}
+				25% {
+					transform: scale(.7);
+					opacity: .7;
+				}
+				50% {
+					transform: scale(.5);
+					opacity: 0.5;
+				}
+				75% {
+					transform: scale(.3);
+					opacity: 0.3;
+				}
+				100%  {
+					transform: scale(0);
+					opacity: 0;
+				}
+			}
+			@keyframes tooltip_spheres_earth_reverse {
+				0% {
+					transform: scale(.5);
+					opacity: 1;
+				}
+				25% {
+					transform: scale(.4);
+					opacity: .75;
+				}
+				50% {
+					transform: scale(.3);
+					opacity: .5;
+				}
+				75% {
+					transform: scale(.2);
+					opacity: .25;
+				}
+				100%  {
+					transform: scale(0,0);
+					opacity: 0;
+				}
+			}
+		}
+	}
+	.running {
+		div#content_spheres {
+			ul#content_lines {
+				li.content_lines_top_left {
+					@include transforming_lines;
+					animation: move_top_left .9s linear forwards !important;
+					@keyframes move_top_left {
+						0% {
+							width: 0;
+						}
+						100% {
+							width: 205px;
+						}
+					}
+					@media (max-width: 767px) { //Phone
+						animation: move_top_left .9s linear forwards !important;
+						@keyframes move_top_left {
+							0% {
+								width: 0;
+							}
+							100% {
+								width: 135px;
+							}
+						}
+					}
+					.content_spheres_top_left_link {
+						&>p {
+							opacity: 0;
+							animation: tooltip .8s 1.2s linear forwards !important;
+						}
+						&>img {
+							opacity: 0;
+							animation: tooltip_spheres 1s .8s linear forwards !important;
+						}
+					}
+					span#layerBall_top_left {
+						animation: point .1s 0.8s linear forwards;
+						@keyframes point {
+							0%  {
+								transform: scale(0);
+							}
+							100% {
+								transform: scale(1);
+							}
+						}
+					}
+					.moving_ray_top_left {
+						@include moving_ray;
+						animation: little_moving_ray_top_left 3s 1s ease-in-out infinite;
+						@keyframes little_moving_ray_top_left {
+							0% {
+								transform: translateX(800%);
+							}
+							100% {
+								transform: translateX(2215%);
+							}
+						}
+						@media (max-width: 767px) { //Phone
+							animation: little_moving_ray_top_left 3s 1s ease-in-out infinite;
+							@keyframes little_moving_ray_top_left {
+								0% {
+									transform: translateX(0);
+								}
+								100% {
+									transform: translateX(1450%);
+								}
+							}
+						}
+
+					}
+				}
+				li.content_lines_top_right {
+					@include transforming_lines;
+					animation: move_top_right .5s linear forwards !important;
+					@keyframes move_top_right {
+						0% {
+							width: 0;
+						}
+						100% {
+							width: 370px;
+						}
+					}
+					@media (max-width: 767px) { //Phone
+						animation: move_top_right .5s linear forwards !important;
+						@keyframes move_top_right {
+							0% {
+								width: 0;
+							}
+							100% {
+								width: 135px;
+							}
+						}
+					}
+					.content_spheres_top_right_link {
+						&>p {
+							opacity: 0;
+							animation: tooltip .8s .8s linear forwards !important;
+						}
+						&>img {
+							opacity: 0;
+							animation: tooltip_spheres 1s .4s linear forwards !important;
+						}
+					}
+					span#layerBall_top_right {
+						animation: point .1s 0.4s linear forwards;
+						@keyframes point {
+							0%  {
+								transform: scale(0);
+							}
+							100% {
+								transform: scale(1);
+							}
+						}
+					}
+					.moving_ray_top_right {
+						@include moving_ray;
+						animation: little_moving_ray_top_right 3s 1s ease-in-out infinite;
+						@keyframes little_moving_ray_top_right {
+							0% {
+								transform: translateX(800%);
+							}
+							100% {
+								transform: translateX(4030%);
+							}
+						}
+						@media (max-width: 767px) { //Phone
+							animation: little_moving_ray_top_right 3s 1s ease-in-out infinite;
+							@keyframes little_moving_ray_top_right {
+								0% {
+									transform: translateX(0);
+								}
+								100% {
+									transform: translateX(1450%);
+								}
+							}
+						}
+					}
+				}
+				li.content_lines_bottom_left {
+					@include transforming_lines;
+					animation: move_bottom_left .75s linear forwards !important;
+					@keyframes move_bottom_left {
+						0% {
+							width: 0;
+						}
+						100% {
+							width: 380px; // 360px;
+						}
+					}
+					@media (max-width: 767px) { //Phone
+						animation: move_bottom_left .75s linear forwards !important;
+						@keyframes move_bottom_left {
+							0% {
+								width: 0;
+							}
+							100% {
+								width: 215px;
+								// the difference between the ray going beyond the center-picture above and the ray going beyond the center-picture below - 10px (center of all rays is higher than center of the center-picture on 10px)
+							}
+						}
+					}
+					.content_spheres_bottom_left_link {
+						&>p {
+							opacity: 0;
+							animation: tooltip .8s .95s linear forwards !important;
+						}
+						&>img {
+							opacity: 0;
+							animation: tooltip_spheres 1s .55s linear forwards !important;
+						}
+					}
+					span#layerBall_bottom_left {
+						animation: point .1s 0.7s linear forwards;
+						@keyframes point {
+							0%  {
+								transform: scale(0);
+							}
+							100% {
+								transform: scale(1);
+							}
+						}
+					}
+					.moving_ray_bottom_left {
+						@include moving_ray;
+						animation: little_moving_ray_bottom_left 3s 1s ease-in-out infinite;
+						@keyframes little_moving_ray_bottom_left {
+							0% {
+								transform: translateX(800%);
+							}
+							100% {
+								transform: translateX(4140%);
+							}
+						}
+						@media (max-width: 767px) { //Phone
+							animation: little_moving_ray_bottom_left 3s 1s ease-in-out infinite;
+							@keyframes little_moving_ray_bottom_left {
+								0% {
+									transform: translateX(800%); //800%
+								}
+								100% {
+									transform: translateX(2350%);
+								}
+							}
+						}
+					}
+				}
+				li.content_lines_bottom_right {
+					@include transforming_lines;
+					animation: move_bottom_right  .65s linear forwards !important;
+					@keyframes move_bottom_right {
+						0%   { width: 0;
+						}
+						100% {
+							width: 300px;
+						}
+					}
+					@media (max-width: 767px) { //Phone
+						animation: move_bottom_right .65s linear forwards !important;
+						@keyframes move_bottom_right {
+							0%   { width: 0; }
+							100% { width: 205px; }
+						}
+					}
+					.content_spheres_bottom_right_link {
+						&>p {
+							opacity: 0;
+							animation: tooltip .8s 1.05s linear forwards !important;
+						}
+						&>div.move_to_map {
+							opacity: 0;
+							animation: tooltip_spheres_earth 1s .65s linear forwards !important;
+						}
+					}
+					span#layerBall_bottom_right {
+						animation: point .1s 0.6s linear forwards;
+						@keyframes point {
+							0%  {
+								transform: scale(0);
+							}
+							100% {
+								transform: scale(1);
+							}
+						}
+					}
+					.moving_ray_bottom_right {
+						@include moving_ray;
+						animation: little_moving_ray_bottom_right 3s 1s ease-in-out infinite;
+						@keyframes little_moving_ray_bottom_right {
+							0% {
+								transform: translateX(800%);
+							}
+							100% {
+								transform: translateX(3250%);
+							}
+						}
+						@media (max-width: 767px) { //Phone
+							animation: little_moving_ray_bottom_right 3s 1s ease-in-out infinite;
+							@keyframes little_moving_ray_bottom_right {
+								0% {
+									transform: translateX(800%);
+								}
+								100% {
+									transform: translateX(2200%);
+								}
+							}
+						}
+					}
+				}
+			}
+			@keyframes tooltip {
+				0%  {
+					transform: scale(0);
+					opacity: 0;
+				}
+				50% {
+					transform: scale(1.2);
+					opacity: .3;
+				}
+				75% {
+					transform: scale(.9);
+					opacity: .7;
+				}
+				100% {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+			@keyframes tooltip_spheres {
+				0%  {
+					transform: scale(0);
+					opacity: 0;
+				}
+				50% {
+					transform: scale(1.2);
+					opacity: .3;
+				}
+				75% {
+					transform: scale(.9);
+					opacity: .7;
+				}
+				100% {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+			@keyframes tooltip_spheres_earth {
+				0%  {
+					transform: scale(0);
+					opacity: 0;
+				}
+				50% {
+					transform: scale(.7);
+					opacity: .3;
+				}
+				75% {
+					transform: scale(.4);
+					opacity: .7;
+				}
+				100% {
+					transform: scale(.5);
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

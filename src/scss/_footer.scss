@@ -1,0 +1,136 @@
+footer {
+	position: relative;
+	.footer_wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+		margin-bottom: 3rem !important;
+		.footer_wrapper_col {
+			position: relative;
+			width: 100%;
+			padding-right: 15px;
+			padding-left: 15px;
+			margin-bottom: 4rem !important;
+			.footer_wrapper_col_widget {
+				margin-bottom: 1.5rem!important;
+				.footer_wrapper_col_widget_heading {
+					position: relative;
+					color: #ccc;
+					margin-bottom: 40px;
+					font-family: "Lora",serif;
+					font-weight: 400;
+					font-size: 24px;
+					line-height: 1.5;
+					&:after {
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						content: '';
+						width: 50px;
+						height: 2px;
+						background: rgba(255,255,255,.1);
+					}
+				}
+				&>p {
+					color: #ccc;
+					margin-bottom: 1rem;
+					font-size: 20px;
+				 }
+				.footer_wrapper_col_widget_social {
+					display: flex;
+					justify-content: space-evenly;
+					align-items: center;
+					margin-top: 3rem!important;
+					margin-left: -20%;
+					&>li {
+						margin: 0 10px 0 0;
+						display: inline-block;
+						&>a {
+							height: 50px;
+							width: 50px;
+							display: block;
+							float: left;
+							background: rgba(255,255,255,.05);
+							border-radius: 50%;
+							position: relative;
+						}
+					}
+				}
+				.opening_hours {
+					&>h4 {
+						color: $gold-color;
+						font-size: 1.25rem;
+						font-style: italic;
+						margin-bottom: .5rem;
+					}
+					.holidays {
+						padding-left: 1rem!important;
+						color: #ccc;
+						font-size: 1.25rem;
+						margin-bottom: 1.5rem;
+					}
+				}
+				@include common_contacts;
+			}
+		}
+		@media (min-width: 768px) {
+			.footer_wrapper_col {
+				flex-basis: 0;
+				flex-grow: 1;
+				max-width: 100%;
+			}
+		}
+		.footer_wrapper_copyright {
+			text-align: center;
+			&>p {
+				margin-top: 0;
+				margin-bottom: 1rem;
+				color: #ccc;
+				font-size: 20px;
+			}
+		}
+		@media (min-width: 768px) {
+			.footer_wrapper_copyright {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+	}
+	.up_btn {
+		z-index: 999;
+		width: 220px;
+		height: 220px;
+		color: #000;
+		position: fixed;
+		bottom: -220px;
+		right: -220px;
+		cursor: pointer;
+		transform: rotate(-45deg);
+		border:3px solid #000;
+		transition: all .7s ease-in-out;
+		background-color: $gold-color;
+		outline: 2px solid $gold-color;
+		&:before {
+			content: url("../img/arrows_up.svg");
+			transform: rotate(45deg);
+			position:relative;
+			display:block;
+			left:60px;
+			top:88px;
+			fill: #000;
+			color: #000;
+		}
+		&:after {
+			content: "ВВЕРХ";
+			transform: rotate(-45deg);
+			position:relative;
+			font-weight:bold;
+			font-size:15px;
+			left: 15px;
+			top: 55px;
+			display: inline-block;
+		}
+		&:hover {transform: rotate(45deg);}
+	}
+}

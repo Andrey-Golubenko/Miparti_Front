@@ -1,0 +1,129 @@
+
+section.prices{
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 2rem 0 3rem;
+	@include section_description_with_adds;
+	.prices_subSection {
+		@include aligning_element;
+		flex-direction: column;
+		margin-bottom: 3rem;
+		h2.prices_subSection_heading {
+			color: $gold-color;
+			font: normal 1.9rem 'Lora';
+		}
+		.prices_subSection_heading_desc {
+			color: #ebedec;
+			font: normal 1.5rem 'Lora';
+		}
+	}
+	.prices_inner {
+		@include aligning_element;
+		justify-content: space-evenly;
+		margin-bottom: 4rem;
+		width: 100%;
+		flex-wrap: wrap;
+		.prices_inner_item {
+			@include aligning_element;
+			flex-direction: column;
+			flex: 0 0 21%;
+			margin: 0 10px 2rem;
+			padding: 0 20px;
+			color: #fff;
+			text-align: center;
+			box-shadow: 0 0 15px 3.5px white ;
+			border-radius: 15px;
+			.prices_inner_item_price {
+				margin: 1.7rem  0 1.7rem;
+				@include aligning_element;
+				.prices_inner_item_number {
+					width: 49.5%;
+					font: bold 2.7rem 'Lora';
+				}
+				.prices_inner_item_text {
+					width: 49.5%;
+					font: bold 1.6rem 'Lora';
+					.prices_inner_item_text_currency, .prices_inner_item_text_text {
+						@include aligning_element;
+						margin-left: 1.5rem;
+						border-bottom: 2px solid #ffb700;
+						width: 75%;
+					}
+					.prices_inner_item_text_text {
+						font-size: 1rem;
+						border-bottom: none;
+					}
+				}
+			}
+			.prices_inner_item_quantity {
+				@include aligning_element;
+				margin-bottom: 1.2rem;
+				width: 100%;
+				font: 1.3rem 'Lora';
+				&>p.prices_inner_item_quantity_wrapper {
+					display: block;
+					white-space: nowrap;
+					&>strong {
+						font-size: 1.6rem;
+						margin-right: .45rem;
+					}
+					&>span {
+						white-space: nowrap;
+						margin-right: -4px;
+					}
+				}
+			}
+			.prices_inner_item_total {
+				width: 100%;
+				font: 1.2rem 'Lora';
+				@include aligning_element;
+				justify-content: space-evenly;
+				.prices_inner_item_total_price {
+					text-align: center;
+					&>span:first-child {
+						display: block;
+						font: bold 1.4rem 'Lora';
+						border-bottom: 2px solid #ffb700;
+					}
+					&>span:last-child {
+						display: block;
+					}
+				}
+			}
+			@include common_subscription_form_link;
+			.subscription_form_link {
+				position: static;
+				width: auto;
+				height: auto;
+				border-right: 1.2px solid;
+				margin-top: 4rem;
+				margin-bottom: 2.5rem;
+				box-shadow: 0 0 8px 2px $gold-color ;
+				border-image: linear-gradient(to top, transparent, $gold-color, transparent) 20%;
+				&:hover  {
+					box-shadow:  0 0 20px #fff inset;
+					border: 1px solid $gold-color;
+					border-image: none;
+					border-radius: 20px;
+				}
+				&:hover a {
+					border: 0;
+					padding: 12px 14px;
+				}
+
+				&>a {
+					width: 100%;
+					height: 100%;
+					border-top: 1.2px solid;
+					border-bottom: 1.2px solid;
+					padding: 10px;
+					border-image: linear-gradient(to right, transparent, $gold-color , transparent) 10%;
+					&>p {
+						color: $gold-color;
+					}
+				}
+			}
+		}
+	}
+}

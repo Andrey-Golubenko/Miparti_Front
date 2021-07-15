@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "Mipari site",
   "main": "index.js",
+  "homepage": "https://andrey-golubenko.github.io/miparti",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "gulp build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Andrey Golubenko",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
+    "gh-pages": "^3.2.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",

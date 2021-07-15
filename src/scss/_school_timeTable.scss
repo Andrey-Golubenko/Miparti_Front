@@ -1,0 +1,144 @@
+.timetable {
+	display: block;
+	width: 100%;
+	height: 100%;
+	.timetable_table {
+		@include aligning_element;
+		height: 100%;
+		margin: 2rem 0 3.5rem;
+
+		&>:last-child {
+			.timetable_table_heading {
+				&>h3 { border-right: 2px solid !important; }
+			}
+			.timetable_table_item {
+				.timetable_table_item_text {
+					border-right: 2px solid !important;
+				}
+			}
+		}
+		.slick-list.draggable {
+			margin-right: 2rem;
+			margin-left: 2rem;
+		}
+		button.slick-prev.slick-arrow, button.slick-next.slick-arrow {
+			position: absolute;
+			background: url("../img/arrow_for_all.svg") transparent no-repeat;
+			fill: #fff;
+			border: 0;
+			cursor: pointer;
+			width: 34px !important;
+			height: 34px !important;
+		}
+		button.slick-prev.slick-arrow {
+			left: .8%;
+			transform: rotate(-180deg) ;
+		}
+		button.slick-next.slick-arrow {
+			right: .8%;
+		}
+
+		.timetable_table_day {
+			display: block;
+			width: 16%;
+			height: 100%;
+			margin-right: -2px;
+
+			.timetable_table_heading {
+				width: 100%;
+				height: 12%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-basis: 100%;
+				border: 2px solid;
+				border-right: 0;
+				border-left: 0;
+				border-image: linear-gradient(to right, transparent, $gold-color, transparent) 10%;
+				&>h3 {
+					@include aligning_element;
+					flex-direction: column;
+					width: calc(100% - 2px);
+					height: calc(100% + 2px);
+					border: 2px solid;
+					border-top: 0;
+					border-bottom: 0;
+					border-right: 0;
+					border-image: linear-gradient(to top, transparent, $gold-color, transparent) 10%;
+					padding: 1rem;
+					text-align: center;
+					font: 1.1rem "Lora", sans-serif;
+					color: #ebedec;
+					box-shadow: 0 0 22px 2.5px $gold-color inset;
+					@media (max-width: 767px) {
+						font-size: 1rem;
+					}
+					@media (max-width: 375px) {
+						font-size: .85rem;
+					}
+				}
+
+			}
+
+			.timetable_table_item {
+				width: 100%;
+				height: 100px;
+				border: 2px solid;
+				border-right: 0;
+				border-left: 0;
+				border-top: 0;
+				border-image: linear-gradient(to right, transparent, $gold-color, transparent) 10%;
+				position: relative;
+				overflow: hidden;
+				@media (max-width: 767px){
+					height: 60px;
+				}
+				&:hover .subscription_form_link  {
+					top: 0;
+				}
+				@include common_subscription_form_link;
+				.subscription_form_link {
+					border-right: 2px solid;
+				}
+
+				.timetable_table_item_text {
+					@include timetable_text;
+					&>time {
+						font-size: 1.355rem;
+					}
+				}
+			}
+			.blue { background-color: rgba(25,39,255, 0.4); }
+			.red { background-color: rgba(253,99,95, 0.4); }
+			.violet { background-color: rgba(227,67,255, 0.4); }
+			.green { background-color: rgba(149,234,36, 0.4); }
+			.grey { background-color: rgba(255,255,255, 0.4); }
+
+		}
+		.timetable_table_day:nth-child(1) {
+			.timetable_table_heading {
+				&>h3 {
+					@media (max-width: 768px) {
+						border-right: 2px solid !important;
+					}
+				}
+			}
+			.timetable_table_item {
+				.timetable_table_item_text {
+					@media (max-width: 767px) {
+						border-right: 2px solid !important;
+					}
+				}
+			}
+		}
+	}
+	@include section_description_with_adds;
+
+}
+
+.signUp { //required
+    @include aligning_element;
+	@include signUp_form_content;
+
+}
+

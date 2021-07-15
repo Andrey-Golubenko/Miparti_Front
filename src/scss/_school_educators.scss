@@ -1,0 +1,61 @@
+section.educators {
+	margin-top: 3rem;
+	.educators_item {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 1rem 7rem;
+		@media (max-width: 804px){
+			flex-direction: column;
+			margin-bottom: 4rem;
+		}
+		.educators_item_image {
+			flex-basis: 49.5%;
+			padding: 0 1rem;
+			@media (max-width: 804px){
+				flex-basis: 100%;
+				margin-bottom: 3rem;
+			}
+			@include aligning_element;
+			&>img {
+				height: 570px;
+				width: 350px;
+				object-fit: cover;
+				border: 1px solid #000;
+				box-shadow: 0 0 30px 20px grey;
+			}
+		}
+		.educators_item_content {
+			flex-basis: 49.5%;
+			padding: 0 1rem;
+			@media (max-width: 804px){
+				flex-basis: 100%;
+
+			}
+
+			.educators_item_description{
+				&>h3 {
+					font: 2.5rem "Lora";
+					color: $gold-color;
+					margin-bottom: 2rem;
+					@include aligning_element;
+				}
+				@include section_description_with_adds;
+				.common_description_item {
+					.common_description_text_readMore {
+						margin-bottom: 2rem;
+						@media (max-width: 479px) {
+							margin-bottom: .8rem;
+
+						}
+					}
+				}
+				.educators_common_description_social {
+					display: flex;
+					align-items: center;
+					justify-content: space-evenly;
+					margin-top: 3rem;
+				}
+			}
+		}
+	}
+}
