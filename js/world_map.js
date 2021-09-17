@@ -342,7 +342,7 @@ jQuery(function ($) {
             const innerRoundCountries = `
                 <div class="indicator_inner">
                     <a class="round-countries-ajax-popup" href="./countries_images/${countries_obj[key].slider_page}">
-                        <img src="../img/flags/${countries_obj[key].image_name}" alt="Country Image" class="indicator_inner_image">
+                        <img src="./img/flags/${countries_obj[key].image_name}" alt="Country Image" class="indicator_inner_image">
                     </a>
                     <p class="indicator_inner_country">Мы ${countries_obj[key].ru_name}</p>
                 </div>`;
@@ -362,7 +362,7 @@ jQuery(function ($) {
             // метод в кот. при создании экземляра Класса передаём действия при наведении на элемент. Аргументы - координаты курсора на странице во время сработки события наведения (для использ. в указан. координат вывода индикатора) - полученны из контекста Класса (this.lastX, this.lastY)
             over( _actionPointX, _actionPointY) {
                 $('#svg_map path').not(countries_obj[key].selector_name).css('fill', '#000');
-                $('.inner-ajax-popup').attr(`href`, `./countries_images/${countries_obj[key].slider_page}`).html(`<div class="indicator_inner"><img src="../img/flags/${countries_obj[key].image_name}" alt="Country Image" class="indicator_inner_image"><p class="indicator_inner_country">Мы ${countries_obj[key].ru_name}</p></div>`);
+                $('.inner-ajax-popup').attr(`href`, `./countries_images/${countries_obj[key].slider_page}`).html(`<div class="indicator_inner"><img src="./img/flags/${countries_obj[key].image_name}" alt="Country Image" class="indicator_inner_image"><p class="indicator_inner_country">Мы ${countries_obj[key].ru_name}</p></div>`);
                 this.addedHeight = (key === 'all_portugal' || key === 'all_vietnam' || key === 'all_barbados') ? 30 : 0;// тернарный опер-ор (отдел. усл-я для Португалии,Вьетнама, Барбадоса из-за их формы)
                 $('#indicator').css({'top': _actionPointY - this.addedHeight + 'px', 'left': _actionPointX + 3 + 'px'}).fadeToggle(300);
             },
