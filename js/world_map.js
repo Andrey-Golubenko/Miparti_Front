@@ -1,16 +1,9 @@
 jQuery(function ($) {
 "use strict";
-    /***     MAP with MouseSpeedTracker, popup & slider     ***/
-/************************************************************************************/
-/************************************* PLANETS  *************************************/
-/************************************************************************************/
 
-// Appearance Transforming planets, during Scroll
-    const planetsContent = $('.transforming_planets_content');
-    // Moving planets is available only if screen-size is < 768px and central-planet is Invisible
+    const planetsContent = $('.moving_planets_content');
     const studioPlanetsMediaQuery = window.matchMedia('(min-width: 768px)');
-    const centerIsInvisible = $('#content_spheres').offset().top > document.documentElement.clientHeight; // true, if offset.top of central-planet is more than viewport.height of browser window
-
+    const centerIsInvisible = $('#content_spheres').offset().top > document.documentElement.clientHeight;
     if (studioPlanetsMediaQuery.matches && centerIsInvisible) {
         planetsContent.removeClass('running');
         $(window).scroll(function () {
@@ -23,20 +16,11 @@ jQuery(function ($) {
         });
     }
 
-    // Scroll from transforming_planets to world_map
-    //const docRootCountry = $('html, body'); // Variable for ScrollS to AnchorS
     $('.move_to_map, .content_spheres_bottom_right_tooltip').click(function (e) {
         e.preventDefault();
         docRoot.animate({scrollTop: $('#anchor_from_earth').offset().top}, 800);
     });
 
-/************************************************************************************/
-/************************************************************************************/
-
-
-
-
-/*** ВСПОМОГАТЕЛЬНЫЙ ОБЪЕКТ с Информацие по странам к Карте ***/
     const countries_obj = {
         all_canada              :{
             slider_page   : 'canada_images.html',
@@ -243,12 +227,10 @@ jQuery(function ($) {
         }
     };
 
-/*** КЛАСС-КОНСТРУКТОР, экземляры которого наблюдают за Каждой страной в Карте ***/
-
     class HoverIntent {
         constructor({
-            sensitivity = 0.1, // скорость ниже 0.1px/ms значит "курсор на элементе"
-            interval = 100,    // измеряем скорость каждые 100ms
+            sensitivity = 0.1,
+            interval = 100,
             elem,
             over,
             out
@@ -258,47 +240,38 @@ jQuery(function ($) {
             this.elem = elem;
             this.over = over;
             this.out = out;
-            // убедится, что "this" сохраняет своё значение для обработчиков.
             this.onMouseMove = this.onMouseMove.bind(this);
             this.onMouseOver = this.onMouseOver.bind(this);
             this.onMouseOut = this.onMouseOut.bind(this);
             this.onScroll = this.onScroll.bind(this);
-            // и в функции, измеряющей время (вызываемой из setInterval)
             this.trackSpeed = this.trackSpeed.bind(this);
 
             elem.addEventListener("mouseover", this.onMouseOver);
             elem.addEventListener("mouseout", this.onMouseOut);
             window.addEventListener("scroll", this.onScroll);
         }
-        // при сработке обработчика "scroll" последние положения курсора по X и Y (this.lastY & this.lastX) устанавливаются в  "undefined", что потом срабатывает в условии отображения '.indicator' в методе trackSpeed() ниже (для отсутствия сработки при случайном попадании курсора на эллементы во время скрола).
         onScroll () {
             this.lastY = undefined;
             this.lastX = undefined;
         }
         onMouseOver(event) {
             if (this.isOverElement) {
-                // Игнорируем событие над элементом, т.к. мы уже измеряем скорость
                 return;
             }
             this.isOverElement = true;
-            /* после каждого движения измеряем дистанцию между предыдущими и текущими координатами курсора и если скорость меньше sensivity, то она считается медленной */
-
             this.prevX = event.pageX;
             this.prevY = event.pageY;
             this.prevTime = Date.now();
-
             this.elem.addEventListener('mousemove', this.onMouseMove);
             this.checkSpeedInterval = setInterval(this.trackSpeed, this.interval);
         }
         onMouseOut(event) {
-            // Если ушли с элемента
             if (!event.relatedTarget || !this.elem.contains(event.relatedTarget)) {
                 this.isOverElement = false;
                 this.elem.removeEventListener('mousemove', this.onMouseMove);
                 clearInterval(this.checkSpeedInterval);
-                if (this.isHover) { // Если была остановка движения на элементе и затем уход с него то выполнится нижеследующее
-                    if (event.relatedTarget === document.querySelector('.indicator_inner')) { return false; } // Если переход с элемента на индикатор, то ВООБЩЕ ничего на происходит (выходим из ф-ции)
-                    else {
+                if (this.isHover) {
+                    if (event.relatedTarget === document.querySelector('.indicator_inner')) { return false; }                   else {
                         this.out.call(this.elem);
                         this.isHover = false;
                     }
@@ -313,7 +286,7 @@ jQuery(function ($) {
         trackSpeed(event) {
             let speed;
             if (!this.lastTime || this.lastTime == this.prevTime) {
-                speed = 0;          // курсор не двигался
+                speed = 0;
             } else {
                 speed = Math.sqrt(
                     Math.pow(this.prevX - this.lastX, 2) +
@@ -321,13 +294,11 @@ jQuery(function ($) {
                 ) / (this.lastTime - this.prevTime);
             }
 
-            if (speed < this.sensitivity && this.lastY !== undefined && this.lastX !== undefined) { //при 1-вом (авто)scroll - this.lastY и this.lastX = undefined
+            if (speed < this.sensitivity && this.lastY !== undefined && this.lastX !== undefined) {
                 clearInterval(this.checkSpeedInterval);
                 this.isHover = true;
-                // вызов метода 'over' в кот. при создании экземляра Класса передали действия при наведении на элемент. Присвоение констекста эллемента на за кот. наблюдает экземпляр и передача в 'over' аргументов - координат курсора на странице во время сработки события наведения (для использ. в указан. координат вывода индикатора)
                 this.over.call(this.elem, this.lastX, this.lastY);
             } else {
-                // скорость высокая, запоминаем новые координаты
                 this.prevX = this.lastX;
                 this.prevY = this.lastY;
                 this.prevTime = this.lastTime;
@@ -335,7 +306,6 @@ jQuery(function ($) {
         }
     }
 
-                    /*** ЕСЛИ МОБИЛЬНОЕ УСТРОЙСТВО - НачалО  ***/
     const loadRoundCountries = window.matchMedia('(max-width: 1023px)');
     if (loadRoundCountries.matches) {const roundCountries = document.querySelector('.world_map_countries');
         for (let key in countries_obj){
@@ -350,16 +320,11 @@ jQuery(function ($) {
         }
     }
     else
-                                /*** ЕСЛИ ЛЕПТОП ***/
-
-/*** ПОЛУЧАЕМ в цикле из ВСПОМОГАТЕЛЬНОГО ОБЪЕКТА все элементы DOM, которые будут отслеживаться экземлюрами класса HoverIntent.
-    Там же Создаём НовЫЕ ЭкземлярЫ данного Класса с указанием в каждом новом єкземпляре имя-ключа отслежеваемого элемента DOM из переменной и действий при наведении на элемент, а так же ухода с него  ***/
 
     for (let key in countries_obj){
         const selectedItem = document.querySelector('#' + key);
         const mouseObserver =  new HoverIntent({
             elem : selectedItem,
-            // метод в кот. при создании экземляра Класса передаём действия при наведении на элемент. Аргументы - координаты курсора на странице во время сработки события наведения (для использ. в указан. координат вывода индикатора) - полученны из контекста Класса (this.lastX, this.lastY)
             over( _actionPointX, _actionPointY) {
                 $('#svg_map path').not(countries_obj[key].selector_name).css('fill', '#000');
                 $('.inner-ajax-popup').attr(`href`, `./countries_images/${countries_obj[key].slider_page}`).html(`<div class="indicator_inner"><img src="./img/flags/${countries_obj[key].image_name}" alt="Country Image" class="indicator_inner_image"><p class="indicator_inner_country">Мы ${countries_obj[key].ru_name}</p></div>`);
@@ -377,7 +342,6 @@ jQuery(function ($) {
         });
     }
 
-    /*** СОЗДАЁМ Доп. экземляр Класса для Индикатора (всплывает при наведении) ***/
     new HoverIntent({
         sensitivity: 10000,
         elem : indicator,
@@ -386,13 +350,12 @@ jQuery(function ($) {
             $('.inner-ajax-popup').attr(`href`, ``).html('');
             $('#indicator').hide();
             $('#svg_map path').css('fill', '#949494');
-            for (let key in countries_obj) { // цикл по данным из доп. объекта
+            for (let key in countries_obj) {
                 $(countries_obj[key].selector_name).css('fill', countries_obj[key].color);
             }
         },
     });
 
-    /*** Загрузка Контента (ФОТО из Всех Стран к КАРТЕ) и вывод в модальном окне по клику ***/
     const docRoot = $('html, body');
     $('.simple-ajax-popup, .inner-ajax-popup, .round-countries-ajax-popup ').magnificPopup({
         preloader: false,
@@ -410,8 +373,7 @@ jQuery(function ($) {
             }
         },
     });
-// ПОСЛЕ загрузки данных с другой страницы подключаем к загруженным данным Слайдер
-$(document).ajaxComplete(function (event, request, settings) {
+$(document).ajaxComplete(function () {
     $('.inner_popup').slick({
         infinite: true,
         cssEase: 'linear',
@@ -424,11 +386,8 @@ $(document).ajaxComplete(function (event, request, settings) {
     })
 });
 
-                /*** ЕСЛИ МОБИЛЬНОЕ УСТРОЙСТВО - Продолжение (Инициализация Слайдера), только после инициализации на эллементах PO-PUP ***/
-
     import('./modules/module_adaptive_slider.js')
         .then(module => {
         module.adaptiveSlider('.world_map_countries');
     });
-                            /*** END OF MAP ***/
 });
